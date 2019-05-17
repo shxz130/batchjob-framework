@@ -14,7 +14,6 @@ import java.util.List;
  * Created by jetty on 2019/1/24.
  */
 @Slf4j
-@Data
 public abstract class AbstractBatchJob<T extends JobEvent> implements BatchJob<T>{
 
     private AbstractBatchJob next;
@@ -46,7 +45,11 @@ public abstract class AbstractBatchJob<T extends JobEvent> implements BatchJob<T
         }
     }
 
-    protected void handleAfter(JobContext jobContext,JobEvent jobEvent){}
+    protected void handleAfter(JobContext jobContext,JobEvent jobEvent){
+        if(next !=null){
+            next.handle(jobEvent);
+        }
+    }
 
     protected void dealException(Exception e){
         log.error("[batchJob][EVENT] exception:", e);

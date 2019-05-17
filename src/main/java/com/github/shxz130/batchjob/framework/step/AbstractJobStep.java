@@ -6,6 +6,7 @@ import com.github.shxz130.batchjob.framework.reader.Reader;
 import com.github.shxz130.batchjob.framework.utils.FileReaderManager;
 import com.github.shxz130.batchjob.framework.writer.AbstractFileWriter;
 import com.github.shxz130.batchjob.framework.writer.Writer;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;
@@ -15,6 +16,7 @@ import java.util.List;
  * Created by jetty on 2019/1/24.
  */
 @Slf4j
+@Setter
 public abstract class AbstractJobStep<T> implements JobStep {
 
     //读取数据
@@ -28,18 +30,6 @@ public abstract class AbstractJobStep<T> implements JobStep {
     //是否分页，默认false
     private boolean flag = true;
 
-    public AbstractJobStep( Reader<T> reader, Processor<T> processor,Writer<T> writer) {
-        this.writer = writer;
-        this.reader = reader;
-        this.processor = processor;
-    }
-
-    public AbstractJobStep(Reader<T> reader, Processor<T> processor, Writer<T> writer, int pageSize) {
-        this.reader = reader;
-        this.processor = processor;
-        this.writer = writer;
-        this.pageSize = pageSize;
-    }
 
     public void doStep(JobContext jobContext) {
         try{
@@ -70,6 +60,7 @@ public abstract class AbstractJobStep<T> implements JobStep {
             processor.process(jobContext, list);
             //写文件
             writer.write(jobContext, list);
+
             currentPage++;
             //分页且能查到数据且查到数据等于每页条数时，继续处理
         } while (flag && list != null && list.size() == pageSize);
