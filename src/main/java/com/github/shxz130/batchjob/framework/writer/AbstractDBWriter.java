@@ -10,8 +10,8 @@ import java.util.List;
 public abstract class AbstractDBWriter<T> implements Writer<T>{
 
     public void write(JobContext batchContext, List<T> list) {
-        writeToDB(list);
+        writeToDB(batchContext,list);
     }
 
-    public abstract void writeToDB(List<T> list);
+    public abstract void writeToDB(JobContext batchJobContext,List<T> dataList);
 }

@@ -110,6 +110,6 @@ public abstract class AbstractFileWriter<T> implements Writer<T>{
      * @param batchContext
      * @param list
      */
-    protected abstract void writeFileConfig(JobContext batchContext, List<T> list);
+    protected abstract void writeFileConfig(JobContext batchContext, List<T> dataList);
 
 }

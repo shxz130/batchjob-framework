@@ -15,14 +15,14 @@ public abstract class AbstractProcessor<T> implements Processor {
      * 业务逻辑处理
      *
      * @param batchContext
-     * @param list
+     * @param dataList
      */
-    public void process(JobContext batchContext, List list) {
+    public void process(JobContext batchContext, List dataList) {
         boolean isFirstReadFile=(Boolean)batchContext.getData(JobContextConstants.IS_FIRST_READ);
         if(isFirstReadFile){
             firstReadSpecialProcess(batchContext);
         }
-        doProcess(batchContext,list);
+        doProcess(batchContext,dataList);
         if(isLastRead(batchContext)){
             lastReadSpecialProcess(batchContext);
         }
@@ -56,9 +56,9 @@ public abstract class AbstractProcessor<T> implements Processor {
      * 业务逻辑处理
      *
      * @param batchContext
-     * @param list
+     * @param dataList
      */
-    protected abstract void doProcess(JobContext batchContext, List<T> list);
+    protected abstract void doProcess(JobContext batchContext, List<T> dataList);
 }
 
 

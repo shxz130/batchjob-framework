@@ -40,8 +40,7 @@ public abstract class AbstractBatchJob<T extends JobEvent> implements BatchJob<T
 
     protected void doHandle(JobContext jobContext){
         for(JobStep jobStep:jobStepList){
-            JobContext stepJobContext=new JobContext(jobContext.getJobEvent(),new HashMap<String, Object>(jobContext.getDataMap()));
-            jobStep.doStep(stepJobContext);
+            jobStep.doStep(jobContext);
         }
     }
 
@@ -52,7 +51,7 @@ public abstract class AbstractBatchJob<T extends JobEvent> implements BatchJob<T
     }
 
     protected void dealException(Exception e){
-        log.error("[batchJob][EVENT] exception:", e);
+        log.error("[batchJob][EVENT] exception,message is", e);
     }
 
 
