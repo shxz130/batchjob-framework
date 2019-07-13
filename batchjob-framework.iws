@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f4b9010-f806-4c67-a5fb-1df954615775" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/design.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/batchjob-framework.iws" afterPath="$PROJECT_DIR$/batchjob-framework.iws" />
     </list>
@@ -49,8 +48,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.056925997">
-                <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+              <first_editor vertical-scroll-proportion="0.113851994">
+                <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -86,16 +85,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JobStep.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/shxz130/batchjob/framework/step/JobStep.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -801,7 +790,7 @@
       <workItem from="1558060980034" duration="12357000" />
       <workItem from="1558319212169" duration="22099000" />
       <workItem from="1558873377390" duration="4966000" />
-      <workItem from="1562570979439" duration="2479000" />
+      <workItem from="1562570979439" duration="3033000" />
     </task>
     <task id="LOCAL-00001" summary="demo展示">
       <created>1558074874573</created>
@@ -827,11 +816,17 @@
       <option name="project" value="LOCAL" />
       <updated>1563004248381</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加readme">
+      <created>1563004522845</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1563004522845</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51358000" />
+    <option name="totallyTimeSpent" value="51912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1003" extended-state="6" />
@@ -922,7 +917,8 @@
     <MESSAGE value="demo展示" />
     <MESSAGE value="修改基本配置" />
     <MESSAGE value="删除废弃的代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除废弃的代码" />
+    <MESSAGE value="添加readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1324,6 +1320,11 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/doc/design.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/shxz130/batchjob/framework/reader/AbstractDBReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1335,8 +1336,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.056925997">
-            <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <first_editor vertical-scroll-proportion="0.113851994">
+            <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
