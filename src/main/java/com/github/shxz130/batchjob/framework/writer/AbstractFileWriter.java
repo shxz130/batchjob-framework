@@ -27,9 +27,6 @@ public abstract class AbstractFileWriter<T> implements Writer<T>{
         String tempFileName=(String)batchContext.getData(JobContextConstants.WRITE_FILE_TEMP_NAME);
 
         StringBuffer dataStringBuffer=new StringBuffer();
-        if(list==null||list.size()==0){//如果记录数为null，则直接返回0
-            return;
-        }
         for(int i=0;i <list.size(); i++){
             //如果是第一次写，且写第一行，不换行，否则需要加换行
             if(i==0&&isFirstWrite(dbReaderCurrentPage,fileReaderBeginIndex)){
@@ -46,14 +43,20 @@ public abstract class AbstractFileWriter<T> implements Writer<T>{
                 if(StringUtils.isNotBlank(title)){
                     //如果头不为null，则需要先写头文件，再写文件内容。
                     FileUtils.writeFile(absolutePath, tempFileName, title.toString(), chaset, false);
-                    FileUtils.writeFile(absolutePath,tempFileName,dataStringBuffer.toString(),chaset,true);
+                    if(list!=null||list.size()!=0){//如果记录数为null，则直接返回0
+                        FileUtils.writeFile(absolutePath,tempFileName,dataStringBuffer.toString(),chaset,true);
+                    }
                 }else{
                     //没有头文件，则字节写新文件
-                    FileUtils.writeFile(absolutePath, tempFileName, dataStringBuffer.toString(), chaset, false);
+                    if(list!=null||list.size()!=0){//如果记录数为null，则直接返回0
+                        FileUtils.writeFile(absolutePath, tempFileName, dataStringBuffer.toString(), chaset, false);
+                    }
                 }
             }else{
                 //非第一次，则追加文件
-                FileUtils.writeFile(absolutePath, tempFileName, dataStringBuffer.toString(), chaset, true);
+                if(list!=null||list.size()!=0){//如果记录数为null，则直接返回0
+                    FileUtils.writeFile(absolutePath, tempFileName, dataStringBuffer.toString(), chaset, true);
+                }
             }
         }catch (Exception e){
             throw new RuntimeException("文件写失败",e);

@@ -27,7 +27,7 @@ public class FileUtils {
 
         File file = new File(remoteFilePath);
         if (!file.exists() && !file.isDirectory()) {// 目录不存在，重新创建
-            file.mkdir();
+            file.mkdirs();
         }
         String fullPath = remoteFilePath + File.separator + fileName;
         File remoteFile = new File(fullPath);
@@ -119,7 +119,7 @@ public class FileUtils {
     public static void createDirectory(String directory) throws Exception {
         File file = new File(directory);
         if (!file.exists()) {
-            file.mkdir();
+            file.mkdirs();
         }
         if (!file.isDirectory()) {
             throw new Exception("文件路径出错,不是文件路径");
