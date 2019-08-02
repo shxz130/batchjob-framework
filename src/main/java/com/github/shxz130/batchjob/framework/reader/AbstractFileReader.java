@@ -6,6 +6,7 @@ import com.github.shxz130.batchjob.framework.utils.FileReaderManager;
 import com.github.shxz130.batchjob.framework.utils.FileUtils;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -20,8 +21,12 @@ public abstract class AbstractFileReader<T> extends AbstractReader{
         jobContext.setData(JobContextConstants.IS_LAST_READ, false);
         String fileName=(String)jobContext.getData(JobContextConstants.FILE_READER_ABSOLUTE_FILE_PATH);
         String chaset=(String)jobContext.getData(JobContextConstants.READ_FILE_CHASET);
+
         int startNumber=getPreviousEndIndex(jobContext);
         if(currentPage==1){
+            if(!new File(fileName).exists()){
+                throw new RuntimeException(String.format("file not found,fileName=[%s]",fileName));
+            }
             log.info("第一次读文件，打开文件流");
             FileReaderManager.getReaderByName(fileName, chaset);
             jobContext.setData(JobContextConstants.IS_FIRST_READ, true);
